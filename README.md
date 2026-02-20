@@ -29,6 +29,7 @@ docker run -d --name keycloak-EAD \
 -e KEYCLOAK_ADMIN_PASSWORD=admin \
 -v $(pwd)/keycloak/realm-export.json:/opt/keycloak/data/import/realm-export.json:ro \
 quay.io/keycloak/keycloak:latest start-dev --import-realm
+docker logs -f keycloak-EAD(check if finished running)
 ```
 
 ### 2. Configure Environment
@@ -45,6 +46,7 @@ SESSION_SECRET=your_secret_here
 ```bash
 npm install
 node app.js
+node app2.js
 ```
 
 ## 👥 Test Users
