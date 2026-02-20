@@ -1,0 +1,87 @@
+{
+    "realm": "enterprise-realm",
+    "enabled": true,
+    "roles": {
+        "realm": [
+            {
+                "name": "user"
+            },
+            {
+                "name": "admin"
+            },
+            {
+                "name": "moderator"
+            }
+        ]
+    },
+    "clients": [
+        {
+            "clientId": "node-app",
+            "name": "Node App",
+            "enabled": true,
+            "protocol": "openid-connect",
+            "publicClient": false,
+            "secret": "node-app-client-secret",
+            "rootUrl": "http://localhost:3000",
+            "baseUrl": "http://localhost:3000",
+            "redirectUris": [
+                "http://localhost:3000/*"
+            ],
+            "webOrigins": [
+                "http://localhost:3000"
+            ],
+            "standardFlowEnabled": true,
+            "directAccessGrantsEnabled": true,
+            "defaultClientScopes": [
+                "web-origins",
+                "roles",
+                "profile",
+                "email"
+            ]
+        }
+    ],
+    "users": [
+        {
+            "username": "bryan",
+            "enabled": true,
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "1234",
+                    "temporary": false
+                }
+            ],
+            "realmRoles": [
+                "user"
+            ]
+        },
+        {
+            "username": "manager",
+            "enabled": true,
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "1234",
+                    "temporary": false
+                }
+            ],
+            "realmRoles": [
+                "admin"
+            ]
+        },
+        {
+            "username": "staff",
+            "enabled": true,
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "1234",
+                    "temporary": false
+                }
+            ],
+            "realmRoles": [
+                "moderator"
+            ]
+        }
+    ]
+}

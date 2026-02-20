@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Enterprise Auth</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>User Dashboard</h1>
+            <p>Welcome back to your workspace.</p>
+
+            <div class="user-info">
+                <p style="margin-bottom: 0.5rem; font-size: 0.875rem;">AUTHENTICATED AS</p>
+                <div style="font-size: 1.25rem; font-weight: 700; color: white;">
+                    <%= user.preferred_username %>
+                </div>
+                <% if (user.realm_access && user.realm_access.roles && user.realm_access.roles.includes('admin')) { %>
+                    <span class="badge badge-admin">Administrator</span>
+                    <% } else { %>
+                        <span class="badge badge-user">Standard User</span>
+                        <% } %>
+            </div>
+
+            <div class="nav-links">
+                <% if (user.realm_access && user.realm_access.roles && (user.realm_access.roles.includes('admin') ||
+                    user.realm_access.roles.includes('moderator'))) { %>
+                    <a href="/moderator" class="btn btn-primary">Moderator Workspace</a>
+                    <% } %>
+                        <a href="/admin" class="btn btn-outline">Access Admin Portal</a>
+                        <a href="/logout" class="btn btn-danger">Terminate Session</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

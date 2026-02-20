@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moderator Portal | Enterprise Auth</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container" style="max-width: 600px;">
+        <div class="card" style="border-color: rgba(99, 102, 241, 0.3);">
+            <span class="admin-header" style="color: var(--primary);">Moderator Workspace</span>
+            <h1>Content Moderation</h1>
+            <p>You have access to this area because you hold the <strong>moderator</strong> or <strong>admin</strong>
+                role.</p>
+
+            <div class="user-info" style="text-align: left;">
+                <h3 style="color: white; margin-bottom: 1rem;">Privilege Verification</h3>
+                <p style="font-size: 0.875rem;">This page is protected by the <code>checkModerator</code> middleware
+                    which validates your realm roles.</p>
+            </div>
+
+            <div class="nav-links">
+                <a href="/dashboard" class="btn btn-outline">Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
