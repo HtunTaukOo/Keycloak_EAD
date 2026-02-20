@@ -38,6 +38,30 @@
                 "profile",
                 "email"
             ]
+        },
+        {
+            "clientId": "node-app-2",
+            "name": "Node App 2 (SSO Demo)",
+            "enabled": true,
+            "protocol": "openid-connect",
+            "publicClient": false,
+            "secret": "node-app-2-client-secret",
+            "rootUrl": "http://localhost:3001",
+            "baseUrl": "http://localhost:3001",
+            "redirectUris": [
+                "http://localhost:3001/*"
+            ],
+            "webOrigins": [
+                "http://localhost:3001"
+            ],
+            "standardFlowEnabled": true,
+            "directAccessGrantsEnabled": true,
+            "defaultClientScopes": [
+                "web-origins",
+                "roles",
+                "profile",
+                "email"
+            ]
         }
     ],
     "users": [
@@ -66,7 +90,8 @@
                 }
             ],
             "realmRoles": [
-                "admin"
+                "admin",
+                "user"
             ]
         },
         {
@@ -80,7 +105,8 @@
                 }
             ],
             "realmRoles": [
-                "moderator"
+                "moderator",
+                "user"
             ]
         }
     ]

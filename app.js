@@ -82,6 +82,15 @@ app.get("/callback", async (req, res) => {
         const tokenSet = await client.callback(process.env.REDIRECT_URI, params);
         const userinfo = await client.userinfo(tokenSet);
 
+        // realm_access (roles) lives in the access token JWT, not userinfo
+        const accessTokenClaims = JSON.parse(
+            Buffer.from(tokenSet.access_token.split('.')[1], 'base64url').toString()
+        );
+        userinfo.realm_access = accessTokenClaims.realm_access;
+
+        console.log("DEBUG realm_access:", JSON.stringify(accessTokenClaims.realm_access));
+        console.log("DEBUG userinfo username:", userinfo.preferred_username);
+
         req.session.tokenSet = tokenSet;
         req.session.userinfo = userinfo;
 

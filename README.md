@@ -23,7 +23,7 @@ A modern Node.js application demonstrating OpenID Connect (OIDC) integration wit
 ### 1. Start Keycloak
 Run Keycloak using Docker with the pre-configured realm:
 ```bash
-docker run -d --name keycloak-demo \
+docker run -d --name keycloak-EAD \
 -p 8080:8080 \
 -e KEYCLOAK_ADMIN=admin \
 -e KEYCLOAK_ADMIN_PASSWORD=admin \

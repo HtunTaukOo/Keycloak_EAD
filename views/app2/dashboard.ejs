@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App 2 Dashboard | SSO Demo</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #14b8a6;
+            --primary-hover: #0d9488;
+        }
+        body {
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(13, 148, 136, 0.1) 0%, transparent 40%);
+        }
+        .sso-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(20, 184, 166, 0.1);
+            color: #14b8a6;
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        .app-label {
+            font-size: 0.75rem;
+            color: #14b8a6;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card" style="border-color: rgba(20, 184, 166, 0.3);">
+            <p class="app-label">Application 2 — Port 3001</p>
+            <span class="sso-badge">&#10003; SSO Authentication Successful</span>
+            <h1>Analytics Portal</h1>
+            <p>You were authenticated by Keycloak without re-entering your password — that's Single Sign-On.</p>
+
+            <div class="user-info">
+                <p style="margin-bottom: 0.5rem; font-size: 0.875rem;">IDENTITY CARRIED OVER FROM KEYCLOAK</p>
+                <div style="font-size: 1.25rem; font-weight: 700; color: white;">
+                    <%= user.preferred_username %>
+                </div>
+                <% const roles = user.realm_access?.roles || []; %>
+                <% if (roles.includes('admin')) { %>
+                    <span class="badge badge-admin">Administrator</span>
+                <% } else if (roles.includes('moderator')) { %>
+                    <span class="badge" style="background: rgba(99,102,241,0.2); color: #a5b4fc;">Moderator</span>
+                <% } else { %>
+                    <span class="badge badge-user">Standard User</span>
+                <% } %>
+
+                <div style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-muted); text-align: left; background: rgba(0,0,0,0.2); padding: 0.75rem; border-radius: 0.5rem;">
+                    <strong style="color: var(--text-main);">Roles from shared Keycloak session:</strong><br>
+                    <%= roles.join(', ') || 'none' %>
+                </div>
+            </div>
+
+            <div class="nav-links">
+                <a href="http://localhost:3000/dashboard" class="btn btn-outline">&#8592; Back to App 1</a>
+                <a href="/logout" class="btn btn-danger">Terminate Session (Global Logout)</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

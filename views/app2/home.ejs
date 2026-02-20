@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App 2 | SSO Demo</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #14b8a6;
+            --primary-hover: #0d9488;
+        }
+        body {
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(13, 148, 136, 0.1) 0%, transparent 40%);
+        }
+        .app-tag {
+            display: inline-block;
+            background: rgba(20, 184, 166, 0.15);
+            color: #14b8a6;
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <span class="app-tag">Application 2 — Port 3001</span>
+            <div style="font-size: 3rem; margin-bottom: 1.5rem;">🌐</div>
+            <h1>Analytics Portal</h1>
+            <p>A completely separate application — same Keycloak realm. Click Sign In and watch SSO work instantly if you're already logged in to App 1.</p>
+            <a href="/login" class="btn btn-primary">Sign In with Keycloak</a>
+            <p style="font-size: 0.75rem; margin-top: 0.5rem;">No password prompt if already authenticated via App 1</p>
+        </div>
+    </div>
+</body>
+
+</html>
