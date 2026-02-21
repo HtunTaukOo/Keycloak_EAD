@@ -22,9 +22,11 @@
                 </div>
                 <% if (user.realm_access && user.realm_access.roles && user.realm_access.roles.includes('admin')) { %>
                     <span class="badge badge-admin">Administrator</span>
-                    <% } else { %>
-                        <span class="badge badge-user">Standard User</span>
-                        <% } %>
+                <% } else if (user.realm_access && user.realm_access.roles && user.realm_access.roles.includes('moderator')) { %>
+                    <span class="badge" style="background: rgba(99,102,241,0.2); color: #a5b4fc;">Moderator</span>
+                <% } else { %>
+                    <span class="badge badge-user">Standard User</span>
+                <% } %>
             </div>
 
             <div class="nav-links">
